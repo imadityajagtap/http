@@ -1,0 +1,21 @@
+1. Open VS code 
+2. open cmd on folder path by typing cmd on that particualr folder
+3.cmd command
+	1. npm init
+	2. hit enter
+	3. hit enter in discription & hit enter till
+#############when author find we start execution#################
+4.creat index.js in vs code
+	4. in cmd write command "npm install express --save
+5. code for index.js
+	const express=require('express');
+	const app=express();
+	app.use(express.static('public'))
+	app.listen(4000,()=>{
+  	  console.log("server is started")
+	})
+6. Create folder public in vs code and create file name index.html
+   and give header of this is static website or write any html code for    	 the website 
+7. Go to cmd write command
+	node index.js
+8. Go to browser and in search bar write localhost:4000

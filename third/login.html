@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href ="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <form action="#">
+                <h2>Login Form</h2>
+            <div class="form.group">
+                <label for="email">Email</label>
+                <input type="email" id ="email" name ="email" placeholder="Enter Email">
+            </div>
+            <div class="form.group">
+                <label for="password">Password</label>
+                <input type="password" id ="password" name="password" placeholder="Enter Password">
+            </div>
+            <div class="center">
+                <button type="button" onclick="savedata()" class ="btn btn-primary" id="save_btn">Submit</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+<script>
+    function savedata( )
+{     let email,password; 
+    email = document.getElementById("email").value;
+    password= document.getElementById("password").value;
+
+    let users_record = new Array();
+    users_record = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+    
+    if(users_record.some((v)=> {
+        return v.email==email && v.password == password;
+
+    })){
+        alert("Login Successful")
+    }
+    else{
+        alert("Login Failed")
+    }
+
+}
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <div>
+        <h1>USER REGISRATION DETAILS</h1>
+        <label>Enter Username</label>
+        <input type="text" id="input">
+        <br><br>
+        <label>Enter Email id</label>
+        <input type="email" id="input1">
+        <br><br>
+        <label>Enter Password</label>
+        <input type="password" id="input2">
+        <br><br>
+        <button onclick="save();">Save</button>
+    </div>
+</body>
+
+    <script>
+        function save(){
+        // get data from input box
+        var new_data=document.getElementById('input').value;
+        var new_data1=document.getElementById('input1').value;
+        var new_data2=document.getElementById('input2').value;
+
+        // if their is nothing at the start then save empty Array
+        if(localStorage.getItem('data')==null){
+            localStorage.setItem('data','[]');
+        }
+        
+        // get old data and slap it to the new data
+        var old_data= JSON.parse(localStorage.getItem('data'));
+        old_data.push(new_data, new_data1, new_data2);
+
+        //save the old + new data to local storage
+        localStorage.setItem('data', JSON.stringify(old_data));
+        }
+
+    </script>
+
+</html>
